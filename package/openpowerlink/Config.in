@@ -1,12 +1,11 @@
 comment "openpowerlink needs a toolchain w/ C++, threads"
-	depends on BR2_i386 || BR2_x86_64
 	depends on !BR2_INSTALL_LIBSTDCPP || !BR2_TOOLCHAIN_HAS_THREADS
 
 config BR2_PACKAGE_OPENPOWERLINK
 	bool "openpowerlink"
 	depends on BR2_INSTALL_LIBSTDCPP
 	depends on BR2_TOOLCHAIN_HAS_THREADS
-	depends on BR2_i386 || BR2_x86_64
+	select BR2_PACKAGE_WIRINGPI
 	help
 	  openPOWERLINK is an Open Source Industrial Ethernet stack
 	  implementing the POWERLINK protocol for Managing Node (MN,
